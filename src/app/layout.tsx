@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`${manrope.className}`}>
-      <body className="text-black-10">
+      <body className="grid-container text-white bg-slate-800 ">
         <Header />
         {children}
         <Footer />

@@ -37,3 +37,31 @@
 html {
   font-family: var(--font-manrope);
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr min(90%, 100rem) 1fr;
+  grid-template-rows: 7.5rem 1fr 31.5rem;
+}
+
+.grid-container > * {
+  grid-column: 2;
+}
+
+.grid-container > .fluid {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1440px) {
+  /* laptop */
+  .grid-container {
+    grid-template-rows: minmax(0, 6.12rem) 1fr minmax(0, 25.9rem);
+  }
+}
+
+@media (max-width: 640px) {
+  /* laptop */
+  .grid-container {
+    grid-template-rows: minmax(0, 6.4rem) 1fr minmax(0, 40.6rem);
+  }
+}
