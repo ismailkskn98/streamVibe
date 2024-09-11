@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'main-background': "var(--main-background)",
+        "main-background": "var(--main-background)",
         red: {
           45: "var(--red-45)",
           50: "var(--red-50)",
@@ -37,9 +37,17 @@ const config: Config = {
           99: "var(--grey-99)",
         },
       },
-      backgroundImage:{
-        'hero-background': "url('/hero.png')"
-      }
+      backgroundImage: {
+        "hero-background": "url('/hero.png')",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+        "3xl": "1921px",
+      },
     },
   },
   plugins: [],
