@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
+  
   /* Font */
   --font-manrope: "Manrope", sans-serif;
+  --main-background: #1E1E1E;
   /* Red */
   --red-45: #e50000;
   --red-50: #ff0000;

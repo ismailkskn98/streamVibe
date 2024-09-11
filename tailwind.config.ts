@@ -5,6 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        'main-background': "var(--main-background)",
         red: {
           45: "var(--red-45)",
           50: "var(--red-50)",
@@ -37,7 +38,7 @@ const config: Config = {
         },
       },
       backgroundImage:{
-        'hero-background': "url('./hero.png')"
+        'hero-background': "url('/hero.png')"
       }
     },
   },

@@ -1,0 +1,5 @@
+.hero {
+    background: rgb(20,20,20);
+    background: linear-gradient(0deg, rgba(20,20,20,0) 10%, rgba(20,20,20,0) 42%, rgba(20,20,20,0.9360119047619048) 92%),
+    linear-gradient(180deg, rgba(20,20,20,0) 10%, rgba(20,20,20,0) 42%, rgba(20,20,20,0.9360119047619048) 92%)
+}
