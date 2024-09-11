@@ -13,7 +13,7 @@ const Entry = () => {
         </p>
       </div>
       <button className="flex items-center gap-1 px-6 py-[18px] bg-red-45 hover:bg-red-55 transition-all text-white rounded-lg">
-        <FaPlay />
+        <FaPlay aria-label="Play" />
         <span>Hemen İzlemeye Başlayın</span>
       </button>
     </section>

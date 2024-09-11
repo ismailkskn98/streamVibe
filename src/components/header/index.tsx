@@ -5,7 +5,7 @@ import Buttons from "./Buttons";
 import MobilNavigation from "./MobilNavigation";
 const Header = () => {
   return (
-    <header className={`w-full fluid`}>
+    <header className="w-full fluid">
       <main className="grid-container">
         <div className="flex items-center justify-between">
           <LogoImage />
