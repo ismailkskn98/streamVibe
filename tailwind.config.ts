@@ -36,6 +36,9 @@ const config: Config = {
           99: "var(--grey-99)",
         },
       },
+      backgroundImage:{
+        'hero-background': "url('./hero.png')"
+      }
     },
   },
   plugins: [],
