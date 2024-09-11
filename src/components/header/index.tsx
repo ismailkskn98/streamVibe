@@ -2,7 +2,7 @@ import React from "react";
 import LogoImage from "./LogoImage";
 import NavigationBar from "./NavigationBar";
 import Buttons from "./Buttons";
-
+import MobilNavigation from "./MobilNavigation";
 const Header = () => {
   return (
     <header className={`w-full fluid`}>
@@ -11,6 +11,7 @@ const Header = () => {
           <LogoImage />
           <NavigationBar />
           <Buttons />
+          <MobilNavigation />
         </div>
       </main>
     </header>
