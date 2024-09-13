@@ -1,6 +1,5 @@
 import Hero from "@/components/hero";
 import HeroImages from "@/components/hero/HeroImages";
-// import Entry from "@/components/entry";
 import Categories from "@/components/categories";
 
 export default function Home() {
@@ -8,7 +7,6 @@ export default function Home() {
     <>
       <Hero />
       <HeroImages />
-      {/* <Entry /> */}
       <Categories />
     </>
   );

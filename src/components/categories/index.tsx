@@ -10,7 +10,7 @@ const Categories = () => {
   const carouselRef = useRef<any>(null);
 
   return (
-    <section className="w-full flex flex-col gap-20 mb-10">
+    <section className="w-full flex flex-col gap-20">
       <main className="w-full flex items-center justify-between">
         <CategoriesTitle />
         <article className="relative bg-black-06 items-center gap-5 p-4 rounded-xl lg:flex hidden">

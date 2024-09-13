@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import desing from "@/../public/abstract-design.svg";
-import Entry from "../entry";
+import Entry from "./entry";
 
 const Hero = () => {
   return (
