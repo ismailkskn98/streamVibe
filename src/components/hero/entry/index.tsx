@@ -14,9 +14,9 @@ const Entry = () => {
           <span className="hidden lg:block">Ayrıca kendi izleme listelerinizi de oluşturabilirsiniz, böylece izlemek istediğiniz içerikleri kolayca bulabilirsiniz.</span>
         </p>
       </article>
-      <button className="flex items-center gap-1 px-6 py-[18px] bg-red-45 hover:bg-red-55 transition-all text-white rounded-lg">
-        <FaPlay aria-label="Play" />
-        <span>Hemen İzlemeye Başlayın</span>
+      <button className="flex items-center gap-1 px-6 py-[14px] 2xl:py-[18px] bg-red-45 hover:bg-red-55 transition-all text-white rounded-lg">
+        <FaPlay aria-label="Play" className="w-6 h-6 2xl:w-7 2xl:h-7" />
+        <span className="text-lg text-sm 2xl:text-lg">Hemen İzlemeye Başlayın</span>
       </button>
     </main>
   );
