@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 //
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 
 type CategoryImage = {
@@ -36,6 +36,25 @@ const CategoriesCarousel = forwardRef((props, ref) => {
       }
     },
   }));
+
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
+  const progress = count > 0 ? current / count : 0;
 
   const categories: Category[] = [
     {
@@ -104,9 +123,10 @@ const CategoriesCarousel = forwardRef((props, ref) => {
     <Carousel
       opts={{
         align: "start",
-        loop: true,
+        loop: false,
       }}
-      className="w-full flex flex-col gap-[30px] relative"
+      setApi={setApi}
+      className="w-full flex flex-col gap-6 relative"
     >
       <div className={`${styles.categories} absolute -top-1 -left-1 -bottom-1 -right-1 min-w-full min-h-full z-20 pointer-events-none`}></div>
       <CarouselContent className="w-full flex items-center justify-between gap-[30px] relative">
@@ -129,8 +149,13 @@ const CategoriesCarousel = forwardRef((props, ref) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious ref={prevRef} className="flex lg:hidden -top-8 -left-0 bg-black-10 text-white z-30 w-10 h-10 hover:text-grey-60 hover:bg-black-06" />
-      <CarouselNext ref={nextRef} className="flex lg:hidden -top-8 -right-0 bg-black-10 text-white z-30 w-10 h-10 hover:text-grey-60 hover:bg-black-06" />
+      <CarouselPrevious ref={prevRef} className="hidden" />
+      <CarouselNext ref={nextRef} className="hidden" />
+      <article className="w-full flex items-center justify-center">
+        <div className="flex lg:hidden w-1/4 h-1 bg-black-10 overflow-hidden">
+          <div className="h-full bg-red-45 transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
+        </div>
+      </article>
     </Carousel>
   );
 });
