@@ -53,20 +53,6 @@ html {
   grid-column: 1 / -1;
 }
 
-@media (max-width: 1440px) {
-  /* laptop */
-  .grid-container {
-    grid-template-rows: minmax(0, 6.12rem) 1fr minmax(0, 25.9rem);
-  }
-}
-
-@media (max-width: 640px) {
-  /* laptop */
-  .grid-container {
-    grid-template-rows: minmax(0, 6.4rem) 1fr minmax(0, 40.6rem);
-  }
-}
-
 @layer base {
   :root {
     --radius: 0.5rem;

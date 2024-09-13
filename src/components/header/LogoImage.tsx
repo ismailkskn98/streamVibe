@@ -6,7 +6,7 @@ import Link from "next/link";
 const LogoImage = () => {
   return (
     <Link href="/" className="relative w-48 h-14">
-      <Image src={logo} alt="StreamVibe" fill />
+      <Image src={logo} alt="StreamVibe" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
     </Link>
   );
 };
