@@ -9,7 +9,7 @@ const Buttons = ({ CarouselApi }: { CarouselApi: React.RefObject<any> }) => {
   const progress = useSelector((state: RootState) => state.categories.progress);
   return (
     <article className="relative bg-black-06 items-center justify-between gap-5 p-4 rounded-xl lg:flex hidden">
-      <div className={`${styles.buttonBg} absolute top-0 left-0 w-full h-full z-10 pointer-events-none rounded-xl`}></div>
+      <div className={`bg-black-06 absolute top-0 left-0 w-full h-full z-10 pointer-events-none rounded-xl`}></div>
       <div
         onClick={() => {
           CarouselApi.current?.goPrev();
