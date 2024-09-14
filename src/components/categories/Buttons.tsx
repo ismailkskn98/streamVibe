@@ -1,6 +1,5 @@
 import React from "react";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
-import styles from "./styles.module.css"; // Eğer styles kullanıyorsanız, doğru yolu belirtin
 import type { RootState } from "@/store";
 import { useSelector } from "react-redux";
 
@@ -9,14 +8,13 @@ const Buttons = ({ CarouselApi }: { CarouselApi: React.RefObject<any> }) => {
   const progress = useSelector((state: RootState) => state.categories.progress);
   return (
     <article className="relative bg-black-06 items-center justify-between gap-5 p-4 rounded-xl lg:flex hidden">
-      <div className={`bg-black-06 absolute top-0 left-0 w-full h-full z-10 pointer-events-none rounded-xl`}></div>
       <div
         onClick={() => {
           CarouselApi.current?.goPrev();
         }}
         className="p-[14px] cursor-pointer bg-black-10 text-white rounded-lg group"
       >
-        <RiArrowLeftLine className={`${styles.button} min-w-[28px] min-h-[28px] bg-black-10 text-white rounded-lg group-hover:text-grey-60 transition-all duration-300`} />
+        <RiArrowLeftLine className={` min-w-[28px] min-h-[28px] bg-black-10 text-white rounded-lg group-hover:text-grey-60 transition-all duration-300`} />
       </div>
       <div className="min-w-20 flex items-center justify-center">
         <div className="flex w-full h-1 bg-black-10 overflow-hidden">
@@ -29,7 +27,7 @@ const Buttons = ({ CarouselApi }: { CarouselApi: React.RefObject<any> }) => {
         }}
         className="p-[14px] cursor-pointer bg-black-10 text-white rounded-lg group"
       >
-        <RiArrowRightLine className={`${styles.button} min-w-[28px] min-h-[28px] bg-black-10 text-white rounded-lg group-hover:text-grey-60 transition-all duration-300`} />
+        <RiArrowRightLine className={`min-w-[28px] min-h-[28px] bg-black-10 text-white rounded-lg group-hover:text-grey-60 transition-all duration-300`} />
       </div>
     </article>
   );
