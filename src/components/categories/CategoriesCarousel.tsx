@@ -6,6 +6,9 @@ import { FiArrowRight } from "react-icons/fi";
 //
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { forwardRef, useImperativeHandle, useRef } from "react";
+import { setScrollSnapList, setSelectedScrollSnap } from "@/store/features/categories/categoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "@/store";
 
 type CategoryImage = {
   id: number;
@@ -38,23 +41,20 @@ const CategoriesCarousel = forwardRef((props, ref) => {
   }));
 
   const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const { progress } = useSelector((state: RootState) => state.categories);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (!api) {
       return;
     }
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    dispatch(setScrollSnapList(api.scrollSnapList().length));
+    dispatch(setSelectedScrollSnap(api.selectedScrollSnap() + 1));
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      dispatch(setSelectedScrollSnap(api.selectedScrollSnap() + 1));
     });
-  }, [api]);
-
-  const progress = count > 0 ? current / count : 0;
+  }, [api, dispatch]);
 
   const categories: Category[] = [
     {

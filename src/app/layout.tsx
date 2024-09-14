@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   title: "StreamVibe",
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${manrope.className}`}>
       <body className="relative grid-container bg-black-08">
-        <Header />
-        {children}
-        <Footer />
+        <StoreProvider>
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
