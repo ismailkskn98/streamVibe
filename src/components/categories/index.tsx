@@ -1,20 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import CategoriesCarousel from "./CategoriesCarousel";
 import CategoriesTitle from "./CategoriesTitle";
 import Buttons from "./Buttons";
+import type { CarouselApi } from "../ui/carousel";
 
 const Categories = () => {
-  const carouselRef = useRef<any>(null);
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
 
   return (
-    <section className="w-full flex flex-col gap-20">
+    <section className="w-full flex flex-col gap-10 md:gap-14 2xl:gap-20">
       <main className="w-full flex items-center justify-between">
         <CategoriesTitle />
-        <Buttons CarouselApi={carouselRef} />
+        <Buttons api={api} />
       </main>
-      <CategoriesCarousel ref={carouselRef} />
+      <CategoriesCarousel api={api} setApi={setApi} />
     </section>
   );
 };

@@ -4,8 +4,7 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 //
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { setScrollSnapList, setSelectedScrollSnap } from "@/store/features/categories/categoriesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/store";
@@ -22,24 +21,7 @@ type Category = {
   image: CategoryImage[];
 };
 
-const CategoriesCarousel = forwardRef((props, ref) => {
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const prevRef = useRef<HTMLButtonElement>(null);
-
-  useImperativeHandle(ref, () => ({
-    goNext: () => {
-      if (nextRef.current) {
-        nextRef.current.click();
-      }
-    },
-    goPrev: () => {
-      if (prevRef.current) {
-        prevRef.current.click();
-      }
-    },
-  }));
-
-  const [api, setApi] = React.useState<CarouselApi>();
+const CategoriesCarousel = ({ api, setApi }: { api: CarouselApi | null; setApi: React.Dispatch<React.SetStateAction<CarouselApi | null>> }) => {
   const { progress } = useSelector((state: RootState) => state.categories);
   const dispatch = useDispatch();
 
@@ -135,10 +117,10 @@ const CategoriesCarousel = forwardRef((props, ref) => {
             className="basis-1/2 lg:basis-1/4 max-w-48 lg:max-w-[300px] bg-black-10 flex flex-col items-center p-5 lg:p-[30px] rounded-xl group cursor-pointer"
           >
             <div className="grid grid-cols-2 gap-1 relative">
-              <Image src={category.image[0].src} alt={category.image[0].alt} width={115} height={123} style={{ width: "auto", height: "auto" }} />
-              <Image src={category.image[1].src} alt={category.image[1].alt} width={115} height={123} style={{ width: "auto", height: "auto" }} />
-              <Image src={category.image[2].src} alt={category.image[2].alt} width={115} height={123} style={{ width: "auto", height: "auto" }} />
-              <Image src={category.image[3].src} alt={category.image[3].alt} width={115} height={123} style={{ width: "auto", height: "auto" }} />
+              <Image src={category.image[0].src} alt={category.image[0].alt} width={115} height={123} />
+              <Image src={category.image[1].src} alt={category.image[1].alt} width={115} height={123} />
+              <Image src={category.image[2].src} alt={category.image[2].alt} width={115} height={123} />
+              <Image src={category.image[3].src} alt={category.image[3].alt} width={115} height={123} />
               <div className={`${styles.categoriesImages} absolute top-0 left-0 w-full h-full z-10`}></div>
             </div>
             <div className="w-full flex items-center justify-between text-white group-hover:text-grey-60 transition-all duration-300">
@@ -148,8 +130,6 @@ const CategoriesCarousel = forwardRef((props, ref) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious ref={prevRef} className="hidden" />
-      <CarouselNext ref={nextRef} className="hidden" />
       <article className="w-full flex items-center justify-center">
         <div className="flex lg:hidden w-1/4 h-1 bg-black-10 overflow-hidden">
           <div className="h-full bg-red-45 transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
@@ -157,7 +137,6 @@ const CategoriesCarousel = forwardRef((props, ref) => {
       </article>
     </Carousel>
   );
-});
+};
 
-CategoriesCarousel.displayName = "CategoriesCarousel";
 export default CategoriesCarousel;

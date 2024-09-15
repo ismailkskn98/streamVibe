@@ -1,0 +1,5 @@
+.devicesCard {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0) 55%, rgba(229, 0, 0, 0.1453958292301295) 100%);
+  opacity: 0.5;
+}
