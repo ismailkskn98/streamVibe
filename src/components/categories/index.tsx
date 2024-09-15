@@ -10,7 +10,7 @@ const Categories = () => {
 
   return (
     <section className="w-full flex flex-col gap-10 md:gap-14 2xl:gap-20">
-      <main className="w-full flex items-center justify-between">
+      <main className="w-full flex items-center justify-between gap-20">
         <CategoriesTitle />
         <Buttons api={api} />
       </main>
