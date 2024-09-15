@@ -1,7 +1,8 @@
 import Hero from "@/components/hero";
 import HeroImages from "@/components/hero/HeroImages";
 import Categories from "@/components/categories";
-import Devices from "@/components/Devices";
+import Devices from "@/components/devices";
+import Faq from "@/components/faq";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroImages />
       <Categories />
       <Devices />
+      <Faq />
     </main>
   );
 }
