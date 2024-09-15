@@ -26,16 +26,15 @@ const CategoriesCarousel = forwardRef((props, ref) => {
   const nextRef = useRef<HTMLButtonElement>(null);
   const prevRef = useRef<HTMLButtonElement>(null);
 
-  // useImperativeHandle ile dışarıya kontrol mekanizmasını açıyoruz
   useImperativeHandle(ref, () => ({
     goNext: () => {
       if (nextRef.current) {
-        (nextRef.current as HTMLElement).click();
+        nextRef.current.click();
       }
     },
     goPrev: () => {
       if (prevRef.current) {
-        (prevRef.current as HTMLElement).click();
+        prevRef.current.click();
       }
     },
   }));
