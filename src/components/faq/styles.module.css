@@ -1,0 +1,6 @@
+.faqBorder {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(229,0,0,0) 0%, rgba(229,0,0,1) 17%, rgba(229,0,0,0) 100%);
+    border: none;
+}
