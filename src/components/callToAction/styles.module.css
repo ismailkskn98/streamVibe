@@ -1,0 +1,11 @@
+.ctaBg {
+  background: rgb(15, 15, 15);
+  background: linear-gradient(90deg, rgba(15, 15, 15, 1) 2%, rgba(20, 15, 15, 0.97) 19%, rgba(34, 14, 14, 0.91) 42%, rgba(166, 0, 0, 0.36668434463629207) 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .ctaBg {
+    background: rgb(15, 15, 15);
+    background: linear-gradient(180deg, rgba(15, 15, 15, 1) 2%, rgba(20, 15, 15, 0.97) 35%, rgba(34, 14, 14, 0.9605218796502977) 47%, rgba(166, 0, 0, 0.4535190785298494) 100%);
+  }
+}
