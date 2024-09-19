@@ -8,14 +8,16 @@ import CallToAction from "@/components/callToAction";
 
 export default function Home() {
   return (
-    <main className="space-y-36">
+    <>
       <Hero />
-      <HeroImages />
-      <Categories />
-      <Devices />
-      <Faq />
-      <Pricing />
-      <CallToAction />
-    </main>
+      <section className="space-y-36">
+        <HeroImages />
+        <Categories />
+        <Devices />
+        <Faq />
+        <Pricing />
+        <CallToAction />
+      </section>
+    </>
   );
 }

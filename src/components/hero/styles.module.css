@@ -1,4 +1,41 @@
 .hero {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(20, 20, 20, 1) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(20, 20, 20, 1) 100%);
+  background: rgb(20, 20, 20);
+  background: linear-gradient(0deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 1) 100%), linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 1) 100%);
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Minimal hareket */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.imageAnimation {
+  position: relative; /* Pozisyonu sabit tutar */
+  animation: moveUpDown 4s ease-in-out infinite;
+}
+
+.imageAnimation-1 {
+  animation-delay: 0s;
+}
+
+.imageAnimation-2 {
+  animation-delay: 0.5s;
+}
+
+.imageAnimation-3 {
+  animation-delay: 1s;
+}
+
+.imageAnimation-4 {
+  animation-delay: 1.5s;
+}
+
+.imageAnimation-5 {
+  animation-delay: 2s;
 }
