@@ -125,7 +125,7 @@ const CategoriesCarousel = ({ api, setApi }: { api: CarouselApi | null; setApi: 
             </div>
             <div className="w-full flex items-center justify-between text-white group-hover:text-grey-60 transition-all duration-300">
               <span className="font-semibold text-sm lg:text-lg capitalize">{category.name}</span>
-              <FiArrowRight className=" w-5 h-5 lg:w-[30px] lg:h-[30px]" />
+              <FiArrowRight className="w-5 h-5 lg:w-[30px] lg:h-[30px]" />
             </div>
           </CarouselItem>
         ))}

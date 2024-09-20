@@ -2,8 +2,8 @@ import "@/styles/reset.css";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/common/footer";
+import Header from "@/components/common/header";
 import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {

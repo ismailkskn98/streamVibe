@@ -2,7 +2,7 @@
 import React from "react";
 import CategoriesCarousel from "./CategoriesCarousel";
 import CategoriesTitle from "./CategoriesTitle";
-import Buttons from "./Buttons";
+import Buttons from "./CategoryButtons";
 import type { CarouselApi } from "../ui/carousel";
 
 const Categories = () => {

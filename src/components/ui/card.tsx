@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Card = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+  return <div className="w-full h-full">{children}</div>;
 };
 
 export const CardContent = ({ children, className }: { children: React.ReactNode; className?: string }) => {

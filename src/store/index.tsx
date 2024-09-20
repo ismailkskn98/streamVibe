@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import categoriesSlice from "./features/categories/categoriesSlice";
+import trailerSlice from "./features/trailer/trailerSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       categories: categoriesSlice,
+      trailer: trailerSlice,
     },
   });
 };
