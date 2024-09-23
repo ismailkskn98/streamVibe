@@ -4,8 +4,9 @@ import CategoriesCarousel from "./CategoriesCarousel";
 import CategoriesTitle from "./CategoriesTitle";
 import Buttons from "./CategoryButtons";
 import type { CarouselApi } from "../ui/carousel";
+import type { MoviesByGenres } from "@/types";
 
-const Categories = () => {
+const Categories = ({ moviesByGenre }: { moviesByGenre: MoviesByGenres[] }) => {
   const [api, setApi] = React.useState<CarouselApi | null>(null);
 
   return (
@@ -14,7 +15,7 @@ const Categories = () => {
         <CategoriesTitle />
         <Buttons api={api} />
       </main>
-      <CategoriesCarousel api={api} setApi={setApi} />
+      <CategoriesCarousel api={api} setApi={setApi} moviesByGenre={moviesByGenre} />
     </section>
   );
 };
