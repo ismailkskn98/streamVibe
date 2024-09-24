@@ -2,8 +2,9 @@ import React from "react";
 import Trailer from "@/components/trailer";
 import type { Movies, MoviesTrending } from "@/types";
 
+const apiKey = process.env.API_KEY;
+
 const getMoviesTrending = async () => {
-  const apiKey = process.env.API_URL;
   const page1 = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=tr-TR&page=1`);
   const data1: MoviesTrending = await page1.json();
   return data1.results;

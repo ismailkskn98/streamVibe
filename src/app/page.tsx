@@ -7,15 +7,19 @@ import Pricing from "@/components/pricing";
 import CallToAction from "@/components/callToAction";
 import type { Genres, Movies, MoviesByGenres, MoviesTrending } from "@/types";
 
-const apiKey = process.env.API_URL;
+const apiKey = process.env.API_KEY;
+
 
 const getMoviesTrending = async () => {
-  const page1 = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=tr-TR&page=1`);
-  const page2 = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=tr-TR&page=2`);
+  const [page1, page2] = await Promise.all([
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=tr-TR&page=1`),
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=tr-TR&page=2`)
+  ]);
+
   const data1: MoviesTrending = await page1.json();
   const data2: MoviesTrending = await page2.json();
-  const results = [...data1.results, ...data2.results];
-  return results;
+  
+  return [...data1.results, ...data2.results];
 };
 
 const getGenres = async () => {
