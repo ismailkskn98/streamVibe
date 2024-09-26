@@ -4,7 +4,7 @@ import type { Movies, MoviesTrending } from "@/types";
 
 const getMoviesTrending = async () => {
   const apiKey = process.env.API_URL;
-  const page1 = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=tr-TR&page=1`);
+  const page1 = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=tr-TR&sort_by=vote_average.desc&vote_count.gte=1000`);
   const data1: MoviesTrending = await page1.json();
   return data1.results;
 };

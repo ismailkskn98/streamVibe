@@ -29,6 +29,7 @@ const getMoviesByGenre = async (genres: Genres[]) => {
     const response = await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genre.id}&language=tr-TR&sort_by=popularity.desc&vote_count.gte=100&page=1`
     );
+
     const data: MoviesTrending = await response.json();
 
     const moviesByGenres = {

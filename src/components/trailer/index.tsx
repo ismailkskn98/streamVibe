@@ -14,7 +14,7 @@ const Trailer = ({ movies }: { movies: Movies[] }) => {
 
   return (
     <section className="relative w-full h-[770px] overflow-hidden rounded-xl border border-solid border-black-12">
-      <main className="w-full absolute z-20 bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-8 pb-5 px-12">
+      <main className="w-full absolute z-20 bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-10 pb-5 px-12">
         <TrailerText trailerItems={movies} selectedIndex={selectedIndex} />
         <TrailerButtons progress={progress} api={api} />
       </main>
