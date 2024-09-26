@@ -9,7 +9,6 @@ type TrailerTextProps = {
 };
 
 const TrailerText = ({ trailerItems, selectedIndex }: TrailerTextProps) => {
-  console.log(selectedIndex);
   return (
     <article className="w-4/5 h-56 absolute z-20 bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center">
       {trailerItems.map((movie: Movies, index: number) => (
