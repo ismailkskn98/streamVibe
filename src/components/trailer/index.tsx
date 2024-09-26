@@ -24,3 +24,4 @@ const Trailer = ({ movies }: { movies: Movies[] }) => {
 };
 
 export default Trailer;
+ 
