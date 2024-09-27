@@ -4,14 +4,13 @@ import Categories from "@/components/categories";
 import Devices from "@/components/devices";
 import Faq from "@/components/faq";
 import Pricing from "@/components/pricing";
-import type { FetchResult, Genres, Movies, MoviesByGenres } from "@/types";
+import type { FetchResult, FetchResultGenres, Genres, Movies, MoviesByGenres } from "@/types";
 import CallToAction from "@/components/common/callToAction";
 import { fetchMoviesApi } from "@/services/movies";
 
 const getMoviesByGenre = async (genres: Genres[]) => {
   const moviesByGenrePromises = genres.map(async (genre) => {
-    const data = await fetchMoviesApi<FetchResult<Movies>>("/discover/movie", 1, `&with_genres=${genre.id}&sort_by=popularity.desc&vote_count.gte=100`);
-
+    const data = await fetchMoviesApi<FetchResult<Movies>>("discover/movie", 1, `&with_genres=${genre.id}&sort_by=popularity.desc&vote_count.gte=5000`);
     const moviesByGenres = {
       id: genre.id,
       genre: genre.name,
@@ -30,10 +29,10 @@ export default async function Home() {
   const [trendMoviesPage1, trendMoviesPage2, genres] = await Promise.all([
     fetchMoviesApi<FetchResult<Movies>>("movie/popular", 1),
     fetchMoviesApi<FetchResult<Movies>>("movie/popular", 2),
-    fetchMoviesApi<FetchResult<Genres>>("genre/movie/list", 1),
+    fetchMoviesApi<FetchResultGenres>("genre/movie/list"),
   ]);
   const allMovies = [...trendMoviesPage1.results, ...trendMoviesPage2.results];
-  const moviesByGenre: MoviesByGenres[] = await getMoviesByGenre(genres.results);
+  const moviesByGenre: MoviesByGenres[] = await getMoviesByGenre(genres.genres);
 
   return (
     <>

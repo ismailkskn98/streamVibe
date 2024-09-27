@@ -21,11 +21,9 @@ export interface Movies {
   vote_count: number;
 }
 
-export interface MoviesTrending {
-  page: number;
-  results: Movies[];
+export interface FetchResultGenres {
+  genres: Array<Genres>;
 }
-
 export interface Genres {
   id: number;
   name: string;
