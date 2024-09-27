@@ -1,7 +1,8 @@
 import React from "react";
 import CtaImages from "./CtaImages";
-import Button from "../common/Button";
+
 import CtaTitle from "./CtaTitle";
+import Button from "../Button";
 
 const CallToAction = () => {
   return (

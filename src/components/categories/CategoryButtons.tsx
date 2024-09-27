@@ -1,14 +1,18 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 import type { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import type { CarouselApi } from "../ui/carousel";
-import Progress from "../common/Progress";
-import Button from "../common/SlideButton";
+import type { CarouselApi } from "@/components/ui/carousel";
+import Progress from "@/components/common/Progress";
+import Button from "@/components/common/SlideButton";
 
-const Buttons = ({ api }: { api: CarouselApi | null }) => {
-  const progress = useSelector((state: RootState) => state.categories.progress);
+const Buttons = ({ api, id }: { api: CarouselApi | null; id: string }) => {
+  const carouselState = useSelector((state: RootState) => state.carousel);
+
+  const progress = useMemo(() => {
+    return carouselState[id]?.progress || 0;
+  }, [carouselState, id]);
 
   const handleScrollNext = useCallback(() => {
     api?.scrollNext();

@@ -2,3 +2,8 @@
   position: absolute;
   bottom: 0 !important;
 }
+
+.trailer_linear {
+  background: rgb(38, 38, 38);
+  background: linear-gradient(180deg, rgba(38, 38, 38, 1) 0%, rgba(38, 38, 38, 0) 76%), linear-gradient(0deg, rgba(20, 20, 20, 1) 0%, rgba(20, 20, 20, 0) 47%);
+}

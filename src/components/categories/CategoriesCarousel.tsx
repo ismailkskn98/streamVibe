@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 //
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import { setScrollSnapList, setSelectedScrollSnap } from "@/store/features/categories/categoriesSlice";
+import { setScrollSnapList, setSelectedScrollSnap } from "@/store/features/categories/carouselSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/store";
 import type { MoviesByGenres } from "@/types";
@@ -14,25 +14,31 @@ const CategoriesCarousel = ({
   api,
   setApi,
   moviesByGenre,
+  id,
 }: {
   api: CarouselApi | null;
   setApi: React.Dispatch<React.SetStateAction<CarouselApi | null>>;
   moviesByGenre: MoviesByGenres[];
+  id: string;
 }) => {
-  const { progress } = useSelector((state: RootState) => state.categories);
+  const carouselState = useSelector((state: RootState) => state.carousel);
   const dispatch = useDispatch();
+
+  const progress = useMemo(() => {
+    return carouselState[id]?.progress || 0;
+  }, [carouselState, id]);
 
   React.useEffect(() => {
     if (!api) {
       return;
     }
-    dispatch(setScrollSnapList(api.scrollSnapList().length));
-    dispatch(setSelectedScrollSnap(api.selectedScrollSnap() + 1));
+    dispatch(setScrollSnapList({ id, count: api.scrollSnapList().length }));
+    dispatch(setSelectedScrollSnap({ id, current: api.selectedScrollSnap() + 1 }));
 
     api.on("select", () => {
-      dispatch(setSelectedScrollSnap(api.selectedScrollSnap() + 1));
+      dispatch(setSelectedScrollSnap({ id, current: api.selectedScrollSnap() + 1 }));
     });
-  }, [api, dispatch]);
+  }, [api, dispatch, id]);
 
   return (
     <Carousel

@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import categoriesSlice from "./features/categories/categoriesSlice";
+import carouselSlice from "./features/categories/carouselSlice";
 import trailerSlice from "./features/trailer/trailerSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      categories: categoriesSlice,
+      carousel: carouselSlice,
       trailer: trailerSlice,
     },
   });

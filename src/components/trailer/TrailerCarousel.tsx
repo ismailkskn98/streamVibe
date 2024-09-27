@@ -40,7 +40,7 @@ const TrailerCarousel = ({ api, setApi, trailerItems }: { api: CarouselApi | nul
             <div className="w-full h-full">
               <Card>
                 <CardContent className="relative w-full h-full flex aspect-square items-center justify-center p-6">
-                  <Image src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} alt={movie.title} fill className="object-cover 2xl:object-fill brightness-50" />
+                  <Image src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} alt={movie.title} fill className="object-cover 2xl:object-fill" />
                 </CardContent>
               </Card>
             </div>
