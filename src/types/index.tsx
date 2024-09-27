@@ -1,3 +1,8 @@
+export interface FetchResult<T> {
+  page: number;
+  results: Array<T>;
+}
+
 export interface Movies {
   backdrop_path: string;
   id: number;
