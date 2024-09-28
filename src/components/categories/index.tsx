@@ -3,10 +3,24 @@ import React from "react";
 import CategoriesCarousel from "./CategoriesCarousel";
 import CategoriesTitle from "./CategoriesTitle";
 import Buttons from "./CategoryButtons";
-import type { MoviesByGenres } from "@/types";
+import type { MovieDetailType, MoviesByGenres } from "@/types";
 import type { CarouselApi } from "@/components/ui/carousel";
 
-const Categories = ({ moviesByGenre, id, title, description }: { moviesByGenre: MoviesByGenres[]; id: string; title: string; description?: string }) => {
+const Categories = ({
+  moviesByGenre,
+  moviesItems,
+  id,
+  title,
+  description,
+  home = false,
+}: {
+  moviesByGenre?: MoviesByGenres[];
+  moviesItems?: MovieDetailType[];
+  id: string;
+  title: string;
+  description?: string;
+  home?: boolean;
+}) => {
   const [api, setApi] = React.useState<CarouselApi | null>(null);
 
   return (
@@ -15,7 +29,7 @@ const Categories = ({ moviesByGenre, id, title, description }: { moviesByGenre: 
         <CategoriesTitle title={title} description={description} />
         <Buttons api={api} id={id} />
       </main>
-      <CategoriesCarousel id={id} api={api} setApi={setApi} moviesByGenre={moviesByGenre} />
+      <CategoriesCarousel id={id} api={api} setApi={setApi} moviesByGenre={moviesByGenre} moviesItems={moviesItems} home={home} />
     </section>
   );
 };

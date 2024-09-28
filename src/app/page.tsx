@@ -44,6 +44,7 @@ export default async function Home() {
           id="home-categories"
           title="Geniş kategori çeşitlerimizi keşfedin"
           description="Sizi güldürecek bir komedi, düşündürecek bir drama veya yeni bir şeyler öğrenmenizi sağlayacak bir belgesel arıyorsanız"
+          home={true}
         />
         <Devices />
         <Faq />

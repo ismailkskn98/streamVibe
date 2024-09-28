@@ -1,6 +1,7 @@
 export const fetchMoviesApi = async <T>(endpoint: string, page?: number, query?: string): Promise<T> => {
   const apiKey = process.env.API_KEY;
-  const url = `https://api.themoviedb.org/3/${endpoint}?api_key=${apiKey}&language=tr-TR${query}${page && `&page=${page}`}`;
+  const baseUrl = "https://api.themoviedb.org/3";
+  const url = `${baseUrl}/${endpoint}?api_key=${apiKey}&language=tr-TR${query}${page && `&page=${page}`}`;
 
   try {
     const response = await fetch(url);
