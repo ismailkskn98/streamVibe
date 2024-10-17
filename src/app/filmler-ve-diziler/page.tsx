@@ -52,24 +52,22 @@ const page = async () => {
   const [movies] = await Promise.all([fetchMoviesApi<FetchResult<MoviesType>>("discover/movie", 1, `&sort_by=vote_average.desc&vote_count.gte=1000`)]);
   const moviesDetails: MovieDetailType[] = await detailedMovies(movies.results);
   return (
-    <>
-      <section className="space-y-[150px] mt-3">
-        <Trailer movies={movies.results} />
-        <MoviesAndShow title="Filmler">
-          <Categories moviesByGenre={moviesByGenre} id={"movies-1"} title="Türlerimiz" />
-          <Categories moviesItems={moviesDetails} id={"movies-categories-2"} title="Şu Anda Trend Olanlar" />
-          {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-3"} title="Yeni Çıkanlar" /> */}
-          {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-4"} title="Mutlaka İzlenmesi Gereken Filmler" /> */}
-        </MoviesAndShow>
-        <MoviesAndShow title="Diziler">
-          <Categories moviesByGenre={moviesByGenre} id={"shows-1"} title="Türlerimiz" />
-          {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-2"} title="Şu Anda Trend Olanlar" />
+    <section className="space-y-[150px] mt-3">
+      <Trailer movies={movies.results} />
+      <MoviesAndShow title="Filmler">
+        <Categories moviesByGenre={moviesByGenre} id={"movies-1"} title="Türlerimiz" />
+        <Categories moviesItems={moviesDetails} id={"movies-categories-2"} title="Şu Anda Trend Olanlar" />
+        {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-3"} title="Yeni Çıkanlar" /> */}
+        {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-4"} title="Mutlaka İzlenmesi Gereken Filmler" /> */}
+      </MoviesAndShow>
+      <MoviesAndShow title="Diziler">
+        <Categories moviesByGenre={moviesByGenre} id={"shows-1"} title="Türlerimiz" />
+        {/* <Categories moviesByGenre={moviesByGenre} id={"movies-categories-2"} title="Şu Anda Trend Olanlar" />
           <Categories moviesByGenre={moviesByGenre} id={"movies-categories-3"} title="Yeni Çıkanlar" />
           <Categories moviesByGenre={moviesByGenre} id={"movies-categories-4"} title="Mutlaka İzlenmesi Gereken Filmler" /> */}
-        </MoviesAndShow>
-        <CallToAction />
-      </section>
-    </>
+      </MoviesAndShow>
+      <CallToAction />
+    </section>
   );
 };
 
