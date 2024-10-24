@@ -10,7 +10,6 @@ import type { Movies } from "@/types";
 
 const TrailerCarousel = ({ api, setApi, trailerItems }: { api: CarouselApi | null; setApi: React.Dispatch<React.SetStateAction<CarouselApi | null>>; trailerItems: Movies[] }) => {
   const dispatch = useDispatch();
-  const autoplay = Autoplay({ delay: 6000, stopOnInteraction: false });
 
   useEffect(() => {
     if (!api) {
@@ -31,7 +30,13 @@ const TrailerCarousel = ({ api, setApi, trailerItems }: { api: CarouselApi | nul
         align: "start",
         loop: true,
       }}
-      plugins={[autoplay]}
+      plugins={[
+        Autoplay({
+          delay: 5000,
+          // stopOnMouseEnter: true,
+          // stopOnInteraction: false,
+        }),
+      ]}
       className="w-full h-full"
     >
       <CarouselContent className="w-full h-full">
@@ -39,8 +44,8 @@ const TrailerCarousel = ({ api, setApi, trailerItems }: { api: CarouselApi | nul
           <CarouselItem key={index}>
             <div className="w-full h-full">
               <Card>
-                <CardContent className="relative w-full h-full flex aspect-square items-center justify-center p-6">
-                  <Image src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} alt={movie.title} fill className="object-cover 2xl:object-fill" />
+                <CardContent className="relative w-full h-full flex items-center justify-center">
+                  <Image src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} alt={movie.title} fill className="object-cover 2xl:object-fill bg-center" />
                 </CardContent>
               </Card>
             </div>

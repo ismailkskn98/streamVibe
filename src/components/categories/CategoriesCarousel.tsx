@@ -54,13 +54,17 @@ const CategoriesCarousel = ({
         loop: false,
         dragFree: true,
       }}
-      plugins={[
-        Autoplay({
-          delay: 2000,
-          stopOnMouseEnter: true,
-          stopOnInteraction: false,
-        }),
-      ]}
+      plugins={
+        home
+          ? [
+              Autoplay({
+                delay: 2000,
+                stopOnMouseEnter: true,
+                stopOnInteraction: false,
+              }),
+            ]
+          : []
+      }
       setApi={setApi}
       className="w-full flex flex-col gap-6 relative"
     >
