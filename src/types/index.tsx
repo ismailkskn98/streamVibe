@@ -1,9 +1,9 @@
-export interface FetchResult<T> {
+export type FetchResult<T> = {
   page: number;
   results: Array<T>;
-}
+};
 
-export interface Movies {
+export type Movies = {
   backdrop_path: string;
   id: number;
   title: string;
@@ -19,26 +19,26 @@ export interface Movies {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
 
-export interface FetchResultGenres {
+export type FetchResultGenres = {
   genres: Array<Genres>;
-}
-export interface Genres {
+};
+export type Genres = {
   id: number;
   name: string;
-}
+};
 
-export interface MoviesByGenres {
+export type MoviesByGenres = {
   id: number;
   genre: string;
   movies: {
     poster_path: string;
     original_title: string;
   }[];
-}
+};
 
-export interface MovieDetailType {
+export type MovieDetailType = {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection?: {
@@ -85,4 +85,4 @@ export interface MovieDetailType {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
