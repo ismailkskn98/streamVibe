@@ -28,7 +28,7 @@ const CategoriesCarousel = ({
   moviesItems?: MovieDetailType[];
   id: string;
   home?: boolean;
-  link: string;
+  link?: string;
 }) => {
   const [showSeeAll, setShowSeeAll] = React.useState(false);
   const carouselState = useSelector((state: RootState) => state.carousel);
