@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 //
+import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { setScrollSnapList, setSelectedScrollSnap } from "@/store/features/categories/carouselSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,7 +52,15 @@ const CategoriesCarousel = ({
       opts={{
         align: "start",
         loop: false,
+        dragFree: true,
       }}
+      plugins={[
+        Autoplay({
+          delay: 2000,
+          stopOnMouseEnter: true,
+          stopOnInteraction: false,
+        }),
+      ]}
       setApi={setApi}
       className="w-full flex flex-col gap-6 relative"
     >
