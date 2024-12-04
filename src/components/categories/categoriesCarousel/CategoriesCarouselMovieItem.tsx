@@ -1,5 +1,5 @@
 import React from "react";
-import { CarouselItem } from "../ui/carousel";
+import { CarouselItem } from "../../ui/carousel";
 import type { MovieDetailType } from "@/types";
 import Image from "next/image";
 import { GoClockFill } from "react-icons/go";

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import CategoriesCarousel from "./CategoriesCarousel";
-import CategoriesTitle from "./CategoriesTitle";
-import Buttons from "./CategoryButtons";
+import CategoriesCarousel from "./categoriesCarousel";
+import CategoriesTitle from "./categoriesCarousel/CategoriesTitle";
+import Buttons from "./categoriesCarousel/CategoryButtons";
 import type { MovieDetailType, MoviesByGenres } from "@/types";
 import type { CarouselApi } from "@/components/ui/carousel";
 

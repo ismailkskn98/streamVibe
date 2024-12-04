@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import styles from "./styles.module.css";
+import styles from "../styles.module.css";
 //
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, type CarouselApi } from "@/components/ui/carousel";
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/store";
 import type { MovieDetailType, MoviesByGenres } from "@/types";
 import CategoryMobileProgressBar from "./CategoryMobileProgressBar";
-import ShowSeeAll from "./ShowSeeAll";
+import CategoryShowSeeAll from "./CategoryShowSeeAll";
 import CategoriesCarouselMoviesItem from "./CategoriesCarouselMoviesItem";
 import CategoriesCarouselMovieItem from "./CategoriesCarouselMovieItem";
 
@@ -93,7 +93,7 @@ const CategoriesCarousel = ({
           })}
         {moviesItems && moviesItems.map((movie: MovieDetailType) => <CategoriesCarouselMovieItem key={movie.id} movie={movie} />)}
       </CarouselContent>
-      {showSeeAll && !home && <ShowSeeAll link={link} />}
+      {showSeeAll && !home && <CategoryShowSeeAll link={link} />}
       <CategoryMobileProgressBar progress={progress} />
     </Carousel>
   );
